@@ -38,12 +38,11 @@
 						class="block btn-a">게시물 리스트</a></li>
 					<li class="cell margin-right-size-1"><a href="/article/add"
 						class="block btn-a">게시물 작성</a></li>
-					<c:if test="${articleId}">
+					<c:if test="${article.getId() != null}">
 						<li class="cell margin-right-size-1"><a
-							href="/article/modify?id=${articleId}" class="block btn-a">게시물
+							href="/article/modify?id=${article.getId()}" class="block btn-a">게시물
 								수정</a></li>
-						<li class="cell margin-right-size-1"><a href="javascript:;"
-							onclick="deleteArticle(${articleId});" class="block btn-a">게시물
+						<li class="cell margin-right-size-1"><a href="doDelete?id=${article.getId()}" class="block btn-a">게시물
 								삭제</a></li>
 					</c:if>
 					<li class="cell margin-right-size-1"><a

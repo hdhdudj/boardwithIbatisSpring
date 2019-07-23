@@ -53,7 +53,13 @@ public class ArticleServiceImpl implements ArticleService {
 		articleDao.update(args);
 	}
 	
-	public void delete(long id) {
-		
+	public String delete(long id, HttpSession session) {
+		long memberId = (long) session.getAttribute("loginedMemberId");
+		Article article = articleDao.getOneById(id);
+		if(article.getMemberId() == memberId) {
+			articleDao.delete(id);
+			return "<script>alert('글이 삭제되었습니다.'); location.replace('./list');</script>";
+		}
+		return "<script>alert('글을 삭제할 수 없습니다.'); location.replace('./detail?id="+article.getId()+"');</script>";
 	}
 }
