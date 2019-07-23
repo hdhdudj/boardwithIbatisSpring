@@ -29,7 +29,7 @@ public class ArticleController {
 	
 	@RequestMapping("article/list")
 	public String showList(Model model, @RequestParam Map<String, Object> param) {
-		param.put("extra__repliesCount ",true);
+		param.put("extra__repliesCount", true);
 		List<Article> list = articleService.getList(param);
 		model.addAttribute("list", list);
 		return "article/list";
@@ -61,6 +61,13 @@ public class ArticleController {
 	public String doAddReply(@RequestParam Map<String, Object> param, HttpSession session) {
 		articleReplyService.addReply(param, session);
 		return "<script>alert('댓글을 작성했습니다.'); location.replace('./detail?id="+param.get("articleId")+"');</script>";
+	}
+	
+	@RequestMapping("article/doDelete")
+	@ResponseBody
+	public String doDelete(long id, HttpSession session) {
+		String asdf = articleService.delete(id, session);
+		return asdf;
 	}
 	
 	@RequestMapping("article/doDeleteReply")

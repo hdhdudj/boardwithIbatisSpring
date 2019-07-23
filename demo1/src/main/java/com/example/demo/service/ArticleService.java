@@ -19,5 +19,5 @@ public interface ArticleService {
 
 	public void update(Map<String, Object> args);
 	
-	public void delete(long id);
+	public String delete(long id, HttpSession session);
 }

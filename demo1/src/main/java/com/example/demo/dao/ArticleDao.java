@@ -14,6 +14,8 @@ public interface ArticleDao {
 	public List<Article> getList(Map<String, Object> args);
 
 	public Article getOne(Map<String, Object> args);
+	
+	public Article getOneById(long id);
 
 	public void add(Map<String, Object> args);
 

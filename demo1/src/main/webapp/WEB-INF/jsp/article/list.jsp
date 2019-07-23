@@ -56,7 +56,7 @@
 					<td><c:out value="${article.writer}" /></td>
 					<td><a href="detail?id=${article.id}"><c:out
 								value="${article.title}" /></a></td>
-					<td>${article.extra.repliesCount}</td>
+					<td>${article.extra.get("repliesCount")}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

@@ -29,6 +29,11 @@
 		SELECT * FROM
 		article WHERE id = #{id}
 	</select>
+	
+	<select id="getOneById" parameterType="long" resultMap="Article">
+		SELECT * FROM
+		article WHERE id = #{id}
+	</select>
 
 	<insert id="add" useGeneratedKeys="true" keyProperty="id"
 		parameterType="map">
@@ -51,6 +56,11 @@
 		</set>
 		WHERE id = #{id}
 	</insert>
+	
+	<delete id="delete">
+		DELETE FROM article
+		WHERE id = #{id}
+	</delete>
 
 	<resultMap id="Article" type="com.example.demo.dto.Article">
 		<id property="id" column="id" />
